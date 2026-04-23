@@ -17,6 +17,7 @@ import {
   useSortable,
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import Image from 'next/image'
 import { GripVertical, Trash2, ImageIcon, Play, Code2, Share2, Link2, Layout } from 'lucide-react'
 import { EmailBlock, EmailFormData } from '../types'
 
@@ -25,15 +26,14 @@ function renderBlockContent(block: EmailBlock, brandColor: string) {
     case 'Logo':
       return block.url ? (
         <div className="flex justify-center py-3">
-          <img
+          <Image
             src={block.url}
             alt="logo"
-            className="object-contain"
-            style={{
-              maxHeight: 56,
-              width: block.width ? `${block.width}px` : 'auto',
-              maxWidth: '100%',
-            }}
+            width={block.width ? Math.min(block.width, 600) : 200}
+            height={56}
+            className="max-h-14 w-auto max-w-full object-contain"
+            style={block.width ? { width: block.width, maxWidth: '100%' } : { maxWidth: '100%' }}
+            unoptimized
           />
         </div>
       ) : (
@@ -65,10 +65,13 @@ function renderBlockContent(block: EmailBlock, brandColor: string) {
     }
     case 'Image':
       return block.url ? (
-        <img
+        <Image
           src={block.url}
           alt={block.alt || ''}
+          width={800}
+          height={450}
           className="max-h-48 w-full rounded object-cover"
+          unoptimized
         />
       ) : (
         <div className="flex h-28 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50">
@@ -154,10 +157,12 @@ function renderBlockContent(block: EmailBlock, brandColor: string) {
       return (
         <div className="relative flex h-36 items-center justify-center overflow-hidden rounded-lg bg-gray-800">
           {block.thumbnailUrl ? (
-            <img
+            <Image
               src={block.thumbnailUrl}
               alt={block.title || ''}
-              className="h-full w-full object-cover opacity-60"
+              fill
+              className="object-cover opacity-60"
+              unoptimized
             />
           ) : (
             <div className="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-900" />

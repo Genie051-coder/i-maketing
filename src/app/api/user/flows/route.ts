@@ -12,7 +12,6 @@ export async function GET() {
     where: { userId: session.user.id, isActive: true },
     orderBy: { updatedAt: 'desc' },
     select: { id: true, title: true, createdAt: true, definition: true },
-    orderBy: { createdAt: 'desc' },
   })
 
   const result = flows.map((flow) => {

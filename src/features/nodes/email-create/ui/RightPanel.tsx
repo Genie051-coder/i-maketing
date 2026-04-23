@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import {
   Type,
   ImageIcon,
@@ -262,10 +263,13 @@ export function RightPanel({
                       <div className="flex items-center justify-between px-3 py-2">
                         <div className="flex items-center gap-2">
                           {brandKit.logoUrl ? (
-                            <img
+                            <Image
                               src={brandKit.logoUrl}
                               alt="logo"
+                              width={20}
+                              height={20}
                               className="h-5 w-5 rounded object-contain"
+                              unoptimized
                             />
                           ) : (
                             <div

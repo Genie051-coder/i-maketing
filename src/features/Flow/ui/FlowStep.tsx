@@ -46,10 +46,7 @@ export function FlowStep({ onStepClick }: FlowStepProps) {
               size="xs"
               onClick={() => handleStepClick(i)}
               disabled={disabled}
-              className={cn(
-                'gap-1.5 rounded-full px-2',
-                disabled && 'opacity-40'
-              )}
+              className={cn('gap-1.5 rounded-full px-2', disabled && 'opacity-40')}
             >
               <Badge
                 variant={completed ? 'secondary' : disabled ? 'secondary' : 'outline'}

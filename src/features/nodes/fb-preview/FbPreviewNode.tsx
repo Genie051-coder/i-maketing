@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Eye, Globe, ThumbsUp, MessageCircle, Share2, Pencil } from 'lucide-react'
 import { EmptyDescription } from '@/shared/ui/basic/empty'
 import { Button } from '@/shared/ui/basic/button'
@@ -63,12 +64,7 @@ export function FbPreviewNode({
                 <div className="mt-2 overflow-hidden rounded-[6px] border border-black/6">
                   {articleImage && (
                     <div className="relative aspect-[1.91/1] w-full overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={articleImage}
-                        alt=""
-                        className="absolute inset-0 h-full w-full object-cover"
-                      />
+                      <Image src={articleImage} alt="" fill className="object-cover" unoptimized />
                     </div>
                   )}
                   <div className="bg-[#f0f2f5] px-2 py-1.5">

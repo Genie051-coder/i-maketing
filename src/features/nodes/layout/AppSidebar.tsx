@@ -132,7 +132,7 @@ export function AppSidebar() {
           dateGroups.length > 0 &&
           dateGroups.map((group) => (
             <SidebarGroup key={group.label} className="group-data-[state=collapsed]:hidden">
-              <SidebarGroupLabel className="text-[11px] font-normal text-muted-foreground">
+              <SidebarGroupLabel className="text-muted-foreground text-[11px] font-normal">
                 {group.label}
               </SidebarGroupLabel>
               <SidebarGroupContent>
@@ -157,7 +157,7 @@ export function AppSidebar() {
                               >
                                 {flow.type === 'facebook' ? 'Facebook' : 'Email'}
                               </Badge>
-                              <span className="text-[10px] text-muted-foreground">
+                              <span className="text-muted-foreground text-[10px]">
                                 {new Date(flow.createdAt).toLocaleDateString('ko-KR', {
                                   month: 'short',
                                   day: 'numeric',

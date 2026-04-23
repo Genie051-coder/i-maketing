@@ -59,8 +59,6 @@ DB를 사용할 때는 아래 순서로 진행합니다.
    npx prisma studio
    ```
 
-자세한 내용은 [docs/PRISMA_GUIDE.md](docs/PRISMA_GUIDE.md)를 참고하세요.
-
 ## 로컬 이메일 테스트 (Mailpit)
 
 Gmail 노드에서 **테스트 발송 / 지금 발송**을 로컬에서 확인하려면 Docker Mailpit을 사용합니다.

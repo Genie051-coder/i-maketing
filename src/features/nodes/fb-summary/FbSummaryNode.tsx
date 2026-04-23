@@ -13,6 +13,7 @@ import {
   Pencil,
   ImageOff,
 } from 'lucide-react'
+import Image from 'next/image'
 import { useFlowStore } from '@/features/flow/store/useFlowStore'
 import { AI_PANEL_MAX_HEIGHT_VIEWPORT_RATIO, AI_PANEL_WIDTH } from '@/features/flow/constants'
 import { useChat } from '@ai-sdk/react'
@@ -84,7 +85,10 @@ export function FbSummaryNode({
   // 사용자가 리사이즈한 AI 패널 크기 (null = 자동 계산값 사용)
   const [aiPanelUserSize, setAiPanelUserSize] = useState<{ w: number; h: number } | null>(null)
   const aiPanelResizeDragOrigin = useRef<{
-    startX: number; startY: number; startW: number; startH: number
+    startX: number
+    startY: number
+    startW: number
+    startH: number
   } | null>(null)
 
   const newsSourceNode = nodes.find((n) => n.type === 'news-source')
@@ -168,8 +172,12 @@ export function FbSummaryNode({
   }, [articleBody, articleLoading]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // ref를 항상 최신 상태로 동기화
-  useEffect(() => { summaryRef.current = summary }, [summary])
-  useEffect(() => { isEditingPostRef.current = isEditingPost }, [isEditingPost])
+  useEffect(() => {
+    summaryRef.current = summary
+  }, [summary])
+  useEffect(() => {
+    isEditingPostRef.current = isEditingPost
+  }, [isEditingPost])
 
   // div가 마운트/언마운트될 때 호출되는 callback ref
   // articleLoading이 false가 되는 순간 div가 처음 마운트되며 즉시 textContent 설정
@@ -397,7 +405,7 @@ export function FbSummaryNode({
       window.addEventListener('pointermove', onMove)
       window.addEventListener('pointerup', onUp)
     },
-    [aiPanelW, aiPanelH, aiPanelHeightPx],
+    [aiPanelW, aiPanelH, aiPanelHeightPx]
   )
 
   return (
@@ -441,11 +449,13 @@ export function FbSummaryNode({
                     className="flex w-full items-center gap-2 px-2.5 py-2 text-left hover:bg-black/[0.02]"
                   >
                     {articleImage ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <Image
                         src={articleImage}
                         alt=""
+                        width={32}
+                        height={32}
                         className="h-8 w-8 shrink-0 rounded-[6px] object-cover"
+                        unoptimized
                       />
                     ) : (
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[6px] bg-black/5">
@@ -543,11 +553,12 @@ export function FbSummaryNode({
                       <div className="mt-1.5 overflow-hidden rounded-[6px] border border-black/6">
                         {articleImage && (
                           <div className="relative aspect-[1.91/1] w-full overflow-hidden">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
+                            <Image
                               src={articleImage}
                               alt=""
-                              className="absolute inset-0 h-full w-full object-cover"
+                              fill
+                              className="object-cover"
+                              unoptimized
                             />
                           </div>
                         )}
@@ -631,9 +642,33 @@ export function FbSummaryNode({
           style={{ width: 18, height: 18, borderRadius: '0 0 12px 0' }}
         >
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-            <line x1="10" y1="3" x2="3" y2="10" stroke="rgba(99,102,241,0.5)" strokeWidth="1.2" strokeLinecap="round" />
-            <line x1="10" y1="6" x2="6" y2="10" stroke="rgba(99,102,241,0.5)" strokeWidth="1.2" strokeLinecap="round" />
-            <line x1="10" y1="9" x2="9" y2="10" stroke="rgba(99,102,241,0.5)" strokeWidth="1.2" strokeLinecap="round" />
+            <line
+              x1="10"
+              y1="3"
+              x2="3"
+              y2="10"
+              stroke="rgba(99,102,241,0.5)"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+            />
+            <line
+              x1="10"
+              y1="6"
+              x2="6"
+              y2="10"
+              stroke="rgba(99,102,241,0.5)"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+            />
+            <line
+              x1="10"
+              y1="9"
+              x2="9"
+              y2="10"
+              stroke="rgba(99,102,241,0.5)"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+            />
           </svg>
         </div>
       </div>

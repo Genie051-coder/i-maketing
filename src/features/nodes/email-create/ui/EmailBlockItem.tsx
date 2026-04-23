@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { GripVertical, Trash2, Plus, X } from 'lucide-react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
@@ -135,15 +136,16 @@ export function EmailBlockItem({
           </div>
           {block.url && (
             <div className="flex justify-center rounded-lg border border-gray-100 bg-gray-50 p-2">
-              <img
+              <Image
                 src={block.url}
                 alt="logo preview"
-                className="object-contain"
-                style={{
-                  maxHeight: 48,
-                  width: block.width ? `${block.width}px` : 'auto',
-                  maxWidth: '100%',
-                }}
+                width={block.width ? Math.min(block.width, 600) : 200}
+                height={48}
+                className="max-h-12 w-auto max-w-full object-contain"
+                style={
+                  block.width ? { width: block.width, maxWidth: '100%' } : { maxWidth: '100%' }
+                }
+                unoptimized
               />
             </div>
           )}

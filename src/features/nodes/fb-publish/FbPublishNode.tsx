@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
@@ -275,11 +276,12 @@ export function FbPublishNode({
                     <div className="mt-2 overflow-hidden rounded-[6px] border border-black/6">
                       {articleImage && (
                         <div className="relative aspect-[1.91/1] w-full overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
+                          <Image
                             src={articleImage}
                             alt=""
-                            className="absolute inset-0 h-full w-full object-cover"
+                            fill
+                            className="object-cover"
+                            unoptimized
                           />
                         </div>
                       )}

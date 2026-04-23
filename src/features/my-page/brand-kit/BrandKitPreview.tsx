@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 type Props = {
@@ -70,7 +71,14 @@ export function BrandKitPreview({
           {/* Header band */}
           <div className="rounded-lg px-5 py-4 text-white" style={{ backgroundColor: primary }}>
             {logoUrl ? (
-              <img src={logoUrl} alt="logo" className="mb-2 h-7 object-contain" />
+              <Image
+                src={logoUrl}
+                alt="logo"
+                width={200}
+                height={28}
+                className="mb-2 h-7 w-auto max-w-full object-contain"
+                unoptimized
+              />
             ) : (
               <div className="mb-1 text-base font-bold text-white">{name}</div>
             )}
