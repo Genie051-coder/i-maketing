@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16
+    container_name: marketing-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: marketing_flow_db
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 로컬 이메일 테스트용 (SMTP 1025, Web UI http://localhost:8025)
+  mailpit:
+    image: axllent/mailpit
+    container_name: marketing-mailpit
+    ports:
+      - '1025:1025' # SMTP
+      - '8025:8025' # Web UI
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

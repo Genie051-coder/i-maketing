@@ -1,0 +1,292 @@
+{
+  "common": {
+    "appName": "i-marketing",
+    "dashboard": "Dashboard",
+    "home": "Home",
+    "profile": "Profile",
+    "settings": "Settings",
+    "settingsDropdown": {
+      "language": "Language",
+      "lightMode": "Light mode",
+      "darkMode": "Dark mode",
+      "logout": "Log out"
+    },
+    "cancel": "Cancel",
+    "save": "Save",
+    "send": "Send",
+    "noTitle": "(No title)"
+  },
+  "campaignCreate": {
+    "title": "What campaign would you like to start?",
+    "subtitle": "Choose a type and create your campaign with AI",
+    "email": "Email",
+    "emailDesc": "Email campaign to deliver to customers",
+    "blog": "Blog",
+    "blogDesc": "SEO-optimized blog post",
+    "facebook": "Facebook",
+    "facebookDesc": "Facebook ads and posts",
+    "instagram": "Instagram",
+    "instagramDesc": "Instagram content campaign",
+    "sms": "SMS",
+    "smsDesc": "Text message campaign",
+    "hint": "Click an example or type your own",
+    "typeRequired": "Please select a campaign type.",
+    "examples": {
+      "email": ["New product launch email", "Customer thank-you newsletter", "Discount promotion"],
+      "blog": ["Summer season trend analysis", "SEO optimization guide", "Product review"],
+      "facebook": ["New product ad copy", "Event promotion post", "Brand story share"],
+      "instagram": ["Product story content", "Reels marketing copy", "Influencer collab post"],
+      "sms": ["Purchase thank-you message", "Discount coupon alert", "Event reminder text"]
+    },
+    "chatPlaceholder": "Enter your campaign title to get started."
+  },
+  "emailCampaign": {
+    "lastSaved": "Last saved",
+    "status": {
+      "draft": "Draft",
+      "scheduled": "Scheduled",
+      "sent": "Sent"
+    },
+    "version": "Version",
+    "addVersion": "Add version",
+    "maxVersionsAlert": "You can create up to 3 variants (A, B, C).",
+    "aiRecommend": "AI variant suggestion",
+    "audience": "Audience",
+    "audienceApplied": "Audience settings have been applied.",
+    "allSaved": "All variants have been saved!",
+    "sendImmediate": "Immediate",
+    "sendScheduled": "Scheduled",
+    "sendComplete": "Send settings complete! (A/B test will use selected variants)"
+  },
+  "editor": {
+    "edit": "Edit",
+    "preview": "Preview",
+    "html": "HTML",
+    "desktopPreview": "Desktop Preview",
+    "mobilePreview": "Mobile Preview",
+    "blocks": "Blocks",
+    "text": "Text",
+    "image": "Image",
+    "button": "Button",
+    "list": "List",
+    "divider": "Divider",
+    "clickHere": "Click here",
+    "sendInfo": "Send info & subject",
+    "fromName": "From name",
+    "fromNamePlaceholder": "e.g. Priosma Team",
+    "fromEmail": "From email",
+    "fromEmailPlaceholder": "hello@company.com",
+    "subject": "Email subject",
+    "subjectPlaceholder": "Write an engaging subject line",
+    "previewText": "Preview text",
+    "previewTextPlaceholder": "Summary shown next to subject in inbox",
+    "branding": "Brand & design",
+    "logoUrl": "Logo image (URL)",
+    "brandColor": "Brand theme color"
+  },
+  "sendModal": {
+    "title": "Confirm and send",
+    "subtitle": "Deliver this campaign to your customers.",
+    "campaignName": "Campaign name",
+    "emailSubject": "Email subject",
+    "recipients": "Recipients",
+    "sendOption": "When to send",
+    "immediate": "Send now",
+    "scheduled": "Schedule",
+    "selectDate": "Select date",
+    "selectTime": "Select time",
+    "timezoneNote": "Server timezone:",
+    "confirmSend": "Send now",
+    "confirmSchedule": "Confirm schedule"
+  },
+  "aiAssistant": {
+    "title": "AI Assistant",
+    "subtitle": "Give commands and the editor updates automatically",
+    "examplesTitle": "💡 Examples:",
+    "example1": "Make the subject shorter",
+    "example2": "Add a CTA button",
+    "example3": "Rewrite in a friendly tone",
+    "working": "AI is working...",
+    "placeholder": "Ask AI to edit...",
+    "goToRegisterModel": "Go to register model"
+  },
+  "audience": {
+    "title": "Target audience",
+    "filterByTag": "Filter by tag",
+    "totalRecipients": "Total recipients",
+    "people": " people",
+    "disclaimer": "* Duplicate recipients are excluded. Recipients who opted out may be excluded from delivery.",
+    "apply": "Apply",
+    "tags": {
+      "20s": "20s students",
+      "vip": "VIP customers",
+      "dormant": "Dormant customers",
+      "new": "New signups (30 days)",
+      "purchased": "Has purchased"
+    }
+  },
+  "chatInput": {
+    "fileDrop": "Files appear here."
+  },
+  "myPage": {
+    "title": "My Page",
+    "subtitle": "Configure API keys, deploy channels, global DB, and more.",
+    "tabs": {
+      "account": "Account",
+      "aiKeys": "AI API Keys",
+      "emailTokens": "Deploy Channels",
+      "brandKit": "Brand Kit",
+      "globalDb": "Global DB"
+    },
+    "account": {
+      "title": "Account",
+      "description": "Your signed-in account information.",
+      "profile": "Profile",
+      "accountInfo": "Account details",
+      "email": "Email",
+      "displayName": "Display name"
+    },
+    "aiKeys": {
+      "title": "AI API Keys",
+      "description": "Register API keys for AI services used in flows. Only registered providers can be selected in nodes.",
+      "provider": "Provider",
+      "apiKey": "API Key",
+      "labelOptional": "Label (optional)",
+      "labelPlaceholder": "e.g. Work key",
+      "add": "Add",
+      "registered": "Registered keys",
+      "empty": "No keys registered.",
+      "loading": "Loading...",
+      "delete": "Delete",
+      "addSuccess": "API key registered.",
+      "deleteSuccess": "Deleted.",
+      "deleteError": "Failed to delete."
+    },
+    "emailTokens": {
+      "title": "Deploy Channels",
+      "description": "Connect tokens for email (Gmail) and ads (Meta). Use them in flow nodes when sending or integrating.",
+      "empty": "No tokens connected yet. Add a Gmail or Meta token below.",
+      "loading": "Loading...",
+      "connected": "Connected tokens",
+      "connectedDescription": "Select one of the tokens below in your flow node settings.",
+      "addToken": "Connect token",
+      "adding": "Connecting...",
+      "delete": "Remove",
+      "addSuccess": "Token connected.",
+      "addError": "Failed to connect token.",
+      "deleteSuccess": "Token disconnected.",
+      "deleteError": "Failed to remove.",
+      "gmail": {
+        "title": "Gmail token",
+        "desc": "Used to send email via your Gmail account. You can select this token in Gmail nodes.",
+        "accessToken": "Access token",
+        "accessTokenPlaceholder": "Paste your Gmail access token here",
+        "refreshToken": "Refresh token (optional)",
+        "refreshTokenPlaceholder": "Add if you have a refresh token",
+        "howToTitle": "Where do I get a token?",
+        "howToSteps": "Create an OAuth 2.0 client in Google Cloud Console and obtain access and refresh tokens, then paste them above. If you're not technical, ask your admin to issue tokens for you."
+      },
+      "meta": {
+        "title": "Meta (Facebook) token",
+        "desc": "Used for Meta services like Facebook and Instagram ads. Select this token when using Meta API in your flow.",
+        "accessToken": "Access token",
+        "accessTokenPlaceholder": "Paste your Meta access token here",
+        "refreshToken": "Refresh token (optional)",
+        "refreshTokenPlaceholder": "Add if you have a refresh token",
+        "howToTitle": "Where do I get a token?",
+        "howToSteps": "Create an app in Meta for Developers, set up permissions (e.g. Marketing API), then get an access token and paste it above. Ask your marketing or dev team if you need help."
+      }
+    },
+    "brandKit": {
+      "title": "Brand Kit",
+      "description": "Set your logo, colors, and brand tone — the AI will automatically apply them when generating emails and posts.",
+      "saveSuccess": "Brand kit saved.",
+      "save": "Save Brand Kit",
+      "saving": "Saving...",
+      "extract": {
+        "title": "Extract from website",
+        "desc": "Enter a URL to auto-detect logo and colors",
+        "button": "Extract",
+        "loading": "Extracting..."
+      },
+      "visual": {
+        "title": "Visual Identity",
+        "desc": "Set your logo and brand colors",
+        "logoUrl": "Logo URL",
+        "primaryColor": "Primary color",
+        "secondaryColor": "Background color",
+        "font": "Font"
+      },
+      "voice": {
+        "title": "Brand Voice",
+        "desc": "Automatically applied when AI generates copy",
+        "tone": "Tone",
+        "tones": {
+          "casual": "Friendly & casual",
+          "professional": "Professional & trustworthy",
+          "witty": "Witty & humorous",
+          "warm": "Warm & heartfelt"
+        },
+        "feeling": "Feeling you want to give",
+        "feelings": {
+          "exciting": "Exciting",
+          "reassuring": "Reassuring",
+          "trustworthy": "Trustworthy",
+          "inspiring": "Inspiring"
+        }
+      },
+      "preview": {
+        "title": "Live Preview",
+        "autoSync": "Updates in real-time",
+        "inbox": "Inbox",
+        "from": "From",
+        "brandName": "Brand Name",
+        "bodyExtra": "Must-know marketing trends and practical tips for this month.",
+        "cta": "Learn more →"
+      }
+    },
+    "globalDb": {
+      "title": "Global DB",
+      "description": "Upload Excel, PDF, etc. to reference from nodes.",
+      "comingSoon": "Coming soon. File upload will be available later."
+    }
+  },
+  "onboarding": {
+    "title": "Set up your Brand Kit",
+    "description": "Set it once and get better results across all campaigns.",
+    "action": "Set up"
+  },
+  "auth": {
+    "modalTitle": "Sign in / Sign up",
+    "modalDescription": "Please sign in to start a campaign.",
+    "tabs": {
+      "login": "Log in",
+      "signup": "Sign up"
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "name": "Name (optional)"
+    },
+    "placeholders": {
+      "email": "example@email.com",
+      "password": "Enter password",
+      "passwordMin": "At least {min} characters",
+      "name": "Enter your name"
+    },
+    "actions": {
+      "login": "Log in",
+      "signup": "Sign up"
+    },
+    "errors": {
+      "fillRequired": "Please enter email and password.",
+      "passwordMin": "Password must be at least {min} characters.",
+      "invalidCredentials": "Invalid email or password.",
+      "signupFailed": "Sign up failed."
+    },
+    "orContinueWith": "Or continue with",
+    "providers": {
+      "google": "Continue with Google"
+    }
+  }
+}

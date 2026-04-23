@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 1. 유저 및 서드파티 토큰 관리
+model User {
+  id              String            @id @default(nanoid())
+  email           String            @unique
+  name            String?
+  /// bcrypt 해시. Credentials(이메일/비밀번호) 가입자만 값 있음.
+  passwordHash    String?
+  isOnboarded     Boolean           @default(false)
+  flows           Flow[]
+  externalTokens  ExternalToken[]
+  apiKeys         UserApiKey[]
+  brandKit        BrandKit?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+/// 유저별 브랜드 키트. 한 번 세팅하면 모든 캠페인에 전역 적용.
+model BrandKit {
+  id              String   @id @default(nanoid())
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId          String   @unique
+
+  // 시각 요소
+  logoUrl         String?
+  primaryColor    String?  // hex (e.g. #3B82F6)
+  secondaryColor  String?
+  fontFamily      String?
+
+  // 브랜드 보이스
+  tone            String?  // "casual" | "professional" | "witty" | "warm"
+  feeling         String?  // "exciting" | "reassuring" | "trustworthy" | "inspiring"
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+/// 마이페이지에서 등록한 AI API 키. 플로우 실행 시 등록된 provider만 사용 가능.
+model UserApiKey {
+  id        String   @id @default(nanoid())
+  provider  String   // 'ANTHROPIC' | 'OPENAI' | 'GEMINI'
+  /// 암호화 저장 권장. 현재는 평문 저장 (추후 암호화 적용)
+  encryptedValue String
+  label     String?  // 사용자 지정 라벨 (예: "회사 키")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, provider])
+  @@index([userId])
+}
+
+model ExternalToken {
+  id           String   @id @default(nanoid())
+  provider     String   // 'GMAIL', 'FACEBOOK' 등
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime?
+  metadata     Json?    // { pageId, pageName } for FACEBOOK
+  user         User     @relation(fields: [userId], references: [id])
+  userId       String
+}
+
+// 2. 플로우 (1플로우 = 1캠페인, 정의는 definition JSON 한 덩어리)
+// definition: { name?, nodes: [{ id, type, position, nextNodeId?, data?, versions? }], connections?, settings? }
+// 노드별 versions: [{ id, label, data, createdAt? }] 로 버전 관리
+model Flow {
+  id          String          @id @default(nanoid())
+  title       String
+  isActive    Boolean         @default(true)
+  /// 워크플로우 전체 정의 (n8n 스타일). nodes 배열 + 노드별 versions 옵션. 저장/로드/실행은 이 JSON 단위.
+  definition  Json            @default("{}")
+  user        User            @relation(fields: [userId], references: [id])
+  userId      String
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  executionRuns  ExecutionRun[]
+  definitionVersions FlowVersion[]
+
+  @@index([userId])
+}
+
+/// 플로우 definition 스냅샷 (플로우 전체 버전 이력, 복원용)
+model FlowVersion {
+  id          String   @id @default(nanoid())
+  flow        Flow     @relation(fields: [flowId], references: [id], onDelete: Cascade)
+  flowId      String
+  /// 해당 시점의 definition JSON 전체
+  definition  Json     @default("{}")
+  /// 버전 라벨 (예: "v1", "2024-03-06 저장")
+  versionLabel String?
+  createdAt   DateTime @default(now())
+
+  @@index([flowId])
+}
+
+// 3. 플로우 1회 실행 단위 (로그 묶음용)
+model ExecutionRun {
+  id        String         @id @default(nanoid())
+  flow      Flow           @relation(fields: [flowId], references: [id], onDelete: Cascade)
+  flowId    String
+  status    String         // 'running' | 'success' | 'failed'
+  logs      ExecutionLog[]
+  createdAt DateTime       @default(now())
+
+  @@index([flowId])
+}
+
+model FacebookPost {
+  id          String   @id @default(cuid())
+  userId      String
+  postId      String   @unique
+  content     String
+  hashtags    String
+  articleUrl  String
+  postUrl     String
+  publishedAt DateTime
+  createdAt   DateTime @default(now())
+}
+
+// 4. 실행 시 노드별 기록 (nodeId는 실행 시점 definition 내 노드 id 문자열)
+model ExecutionLog {
+  id         String         @id @default(nanoid())
+  run        ExecutionRun?  @relation(fields: [runId], references: [id], onDelete: Cascade)
+  runId      String?
+  nodeId     String         // 실행 시점 워크플로우 definition 내 노드 id (FK 아님)
+  status     String         // 'SUCCESS', 'FAILED' 등
+  outputData Json?
+  userInput  String?
+  createdAt  DateTime       @default(now())
+
+  @@index([runId])
+  @@index([nodeId])
+}

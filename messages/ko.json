@@ -1,0 +1,292 @@
+{
+  "common": {
+    "appName": "i-marketing",
+    "dashboard": "대시보드",
+    "home": "홈",
+    "profile": "프로필",
+    "settings": "설정",
+    "settingsDropdown": {
+      "language": "한영 전환",
+      "lightMode": "라이트 모드",
+      "darkMode": "다크 모드",
+      "logout": "로그아웃"
+    },
+    "cancel": "취소",
+    "save": "저장",
+    "send": "발송",
+    "noTitle": "(제목 없음)"
+  },
+  "campaignCreate": {
+    "title": "어떤 캠페인을 시작할까요?",
+    "subtitle": "타입을 선택하고 AI와 함께 캠페인을 만들어보세요",
+    "email": "이메일",
+    "emailDesc": "고객에게 전달할 이메일 캠페인",
+    "blog": "블로그",
+    "blogDesc": "검색 최적화된 블로그 포스트",
+    "facebook": "페이스북",
+    "facebookDesc": "페이스북 광고 및 게시물",
+    "instagram": "인스타그램",
+    "instagramDesc": "인스타그램 콘텐츠 캠페인",
+    "sms": "SMS",
+    "smsDesc": "문자 메시지 캠페인",
+    "hint": "예시를 클릭하거나 직접 입력해보세요",
+    "typeRequired": "캠페인 타입을 선택해주세요.",
+    "examples": {
+      "email": ["신제품 런칭 이메일 작성", "고객 감사 뉴스레터", "할인 프로모션 안내"],
+      "blog": ["여름 시즌 트렌드 분석", "SEO 최적화 가이드", "제품 사용 후기"],
+      "facebook": ["신제품 페이스북 광고 카피", "이벤트 홍보 게시물 작성", "브랜드 스토리 공유"],
+      "instagram": ["제품 스토리 콘텐츠", "릴스용 마케팅 문구", "인플루언서 협업 포스팅"],
+      "sms": ["구매 감사 문자 발송", "할인 쿠폰 알림", "이벤트 참여 유도 문자"]
+    },
+    "chatPlaceholder": "시작할 캠페인의 제목을 입력해주세요."
+  },
+  "emailCampaign": {
+    "lastSaved": "마지막 저장",
+    "status": {
+      "draft": "초안",
+      "scheduled": "예약됨",
+      "sent": "발송완료"
+    },
+    "version": "버전",
+    "addVersion": "시안 추가",
+    "maxVersionsAlert": "최대 3개의 시안(A, B, C)까지 생성 가능합니다.",
+    "aiRecommend": "AI 시안 추천",
+    "audience": "대상 설정",
+    "audienceApplied": "수신군 설정이 적용되었습니다.",
+    "allSaved": "모든 시안이 저장되었습니다!",
+    "sendImmediate": "즉시",
+    "sendScheduled": "예약",
+    "sendComplete": "발송 설정이 완료되었습니다! (선택된 시안들로 A/B 테스트 시작)"
+  },
+  "editor": {
+    "edit": "편집",
+    "preview": "미리보기",
+    "html": "HTML",
+    "desktopPreview": "데스크톱 미리보기",
+    "mobilePreview": "모바일 미리보기",
+    "blocks": "블록",
+    "text": "텍스트",
+    "image": "이미지",
+    "button": "버튼",
+    "list": "리스트",
+    "divider": "구분선",
+    "clickHere": "클릭하기",
+    "sendInfo": "발송 정보 및 제목",
+    "fromName": "발신자 이름",
+    "fromNamePlaceholder": "예: Priosma Team",
+    "fromEmail": "발신 이메일",
+    "fromEmailPlaceholder": "hello@company.com",
+    "subject": "이메일 제목 (Subject)",
+    "subjectPlaceholder": "클릭을 유도하는 매력적인 제목을 작성하세요",
+    "previewText": "미리보기 텍스트 (Preview Text)",
+    "previewTextPlaceholder": "받은편지함 제목 옆에 표시될 요약 텍스트",
+    "branding": "브랜드 & 디자인",
+    "logoUrl": "로고 이미지 (URL)",
+    "brandColor": "브랜드 테마 컬러"
+  },
+  "sendModal": {
+    "title": "최종 확인 및 발송",
+    "subtitle": "설정한 캠페인을 고객들에게 전달합니다.",
+    "campaignName": "캠페인명",
+    "emailSubject": "이메일 제목",
+    "recipients": "대상 수신자",
+    "sendOption": "발송 시점 선택",
+    "immediate": "즉시 발송",
+    "scheduled": "예약 발송",
+    "selectDate": "날짜 선택",
+    "selectTime": "시간 선택",
+    "timezoneNote": "현재 설정된 서버 시간대:",
+    "confirmSend": "지금 바로 발송하기",
+    "confirmSchedule": "예약 설정 완료"
+  },
+  "aiAssistant": {
+    "title": "AI Assistant",
+    "subtitle": "명령하면 에디터가 자동으로 수정됩니다.",
+    "examplesTitle": "💡 예시:",
+    "example1": "제목을 더 짧게 만들어줘",
+    "example2": "CTA 버튼 추가해줘",
+    "example3": "친근한 톤으로 다시 써줘",
+    "working": "AI가 작업 중입니다...",
+    "placeholder": "AI에게 수정 요청...",
+    "goToRegisterModel": "모델 등록하러 가기"
+  },
+  "audience": {
+    "title": "타겟 오디언스 설정",
+    "filterByTag": "태그로 필터링",
+    "totalRecipients": "총 예상 수신자",
+    "people": "명",
+    "disclaimer": "* 중복 수신자는 자동으로 제외 처리됩니다. 수신 동의가 철회된 고객은 실제 발송 대상에서 제외될 수 있습니다.",
+    "apply": "적용하기",
+    "tags": {
+      "20s": "20대 대학생",
+      "vip": "VIP 고객",
+      "dormant": "휴면 고객",
+      "new": "신규 가입(30일 이내)",
+      "purchased": "구매 경험 있음"
+    }
+  },
+  "chatInput": {
+    "fileDrop": "파일이 여기 나타납니다."
+  },
+  "myPage": {
+    "title": "마이페이지",
+    "subtitle": "API 키, 배포 채널, 글로벌 DB 등을 설정합니다.",
+    "tabs": {
+      "account": "계정",
+      "aiKeys": "AI API 키",
+      "emailTokens": "배포 채널",
+      "brandKit": "브랜드 키트",
+      "globalDb": "글로벌 DB"
+    },
+    "account": {
+      "title": "계정 정보",
+      "description": "로그인된 계정 정보입니다.",
+      "profile": "프로필",
+      "accountInfo": "계정 세부 정보",
+      "email": "이메일",
+      "displayName": "표시 이름"
+    },
+    "aiKeys": {
+      "title": "AI API 키",
+      "description": "플로우에서 사용할 AI 서비스 키를 등록하세요. 등록한 AI만 노드에서 선택 가능합니다.",
+      "provider": "서비스",
+      "apiKey": "API 키",
+      "labelOptional": "라벨 (선택)",
+      "labelPlaceholder": "예: 회사 키",
+      "add": "등록",
+      "registered": "등록된 키",
+      "empty": "등록된 키가 없습니다.",
+      "loading": "불러오는 중...",
+      "delete": "삭제",
+      "addSuccess": "API 키가 등록되었습니다.",
+      "deleteSuccess": "삭제되었습니다.",
+      "deleteError": "삭제에 실패했습니다."
+    },
+    "emailTokens": {
+      "title": "배포 채널",
+      "description": "이메일 발송(Gmail)과 광고 연동(Meta)에 사용할 토큰을 연결하세요. 플로우 노드에서 선택해 사용할 수 있습니다.",
+      "empty": "연결된 토큰이 없습니다. 아래에서 Gmail 또는 Meta 토큰을 추가해 보세요.",
+      "loading": "불러오는 중...",
+      "connected": "연결된 토큰",
+      "connectedDescription": "플로우 노드 설정에서 아래 토큰 중 하나를 선택해 사용할 수 있습니다.",
+      "addToken": "토큰 연결하기",
+      "adding": "연결 중...",
+      "delete": "삭제",
+      "addSuccess": "토큰이 연결되었습니다.",
+      "addError": "토큰 연결에 실패했습니다.",
+      "deleteSuccess": "토큰 연결이 해제되었습니다.",
+      "deleteError": "삭제에 실패했습니다.",
+      "gmail": {
+        "title": "Gmail 토큰",
+        "desc": "Gmail 계정으로 이메일을 발송할 때 사용합니다. 플로우의 Gmail 노드에서 이 토큰을 선택할 수 있습니다.",
+        "accessToken": "액세스 토큰",
+        "accessTokenPlaceholder": "여기에 Gmail 액세스 토큰을 붙여넣으세요",
+        "refreshToken": "리프레시 토큰 (선택)",
+        "refreshTokenPlaceholder": "갱신용 토큰이 있다면 입력하세요",
+        "howToTitle": "토큰은 어디서 받나요?",
+        "howToSteps": "Google Cloud Console에서 OAuth 2.0 클라이언트를 만든 뒤, 액세스·리프레시 토큰을 발급받아 위 칸에 붙여넣으면 됩니다. 개발자 도구 없이 사용하려면 팀의 관리자에게 토큰 발급을 요청하세요."
+      },
+      "meta": {
+        "title": "Meta (Facebook) 토큰",
+        "desc": "Facebook·Instagram 광고 등 Meta 서비스 연동 시 사용합니다. 플로우에서 Meta API를 쓸 때 이 토큰을 선택할 수 있습니다.",
+        "accessToken": "액세스 토큰",
+        "accessTokenPlaceholder": "여기에 Meta 액세스 토큰을 붙여넣으세요",
+        "refreshToken": "리프레시 토큰 (선택)",
+        "refreshTokenPlaceholder": "갱신용 토큰이 있다면 입력하세요",
+        "howToTitle": "토큰은 어디서 받나요?",
+        "howToSteps": "Meta for Developers에서 앱을 만들고, Marketing API 등 필요한 권한을 설정한 뒤 액세스 토큰을 발급받아 위 칸에 붙여넣으면 됩니다. 토큰 발급이 어렵다면 팀의 마케팅·개발 담당자에게 요청하세요."
+      }
+    },
+    "brandKit": {
+      "title": "브랜드 키트",
+      "description": "로고, 색상, 브랜드 톤을 설정하면 AI가 이메일·포스팅 생성 시 자동으로 반영합니다.",
+      "saveSuccess": "브랜드 키트가 저장되었습니다.",
+      "save": "브랜드 키트 저장",
+      "saving": "저장 중...",
+      "extract": {
+        "title": "웹사이트에서 자동 추출",
+        "desc": "URL만 입력하면 로고·컬러를 자동으로 가져와요",
+        "button": "자동 추출",
+        "loading": "추출 중..."
+      },
+      "visual": {
+        "title": "시각 요소",
+        "desc": "로고와 브랜드 컬러를 설정하세요",
+        "logoUrl": "로고 URL",
+        "primaryColor": "메인 컬러",
+        "secondaryColor": "배경 컬러",
+        "font": "폰트"
+      },
+      "voice": {
+        "title": "브랜드 보이스",
+        "desc": "AI 카피 생성 시 자동으로 반영돼요",
+        "tone": "말투",
+        "tones": {
+          "casual": "친근하고 캐주얼",
+          "professional": "전문적이고 신뢰감",
+          "witty": "위트있고 유머러스",
+          "warm": "따뜻하고 감성적"
+        },
+        "feeling": "고객에게 주고 싶은 느낌",
+        "feelings": {
+          "exciting": "설레게",
+          "reassuring": "안심시키게",
+          "trustworthy": "신뢰를 주게",
+          "inspiring": "영감을 주게"
+        }
+      },
+      "preview": {
+        "title": "실시간 미리보기",
+        "autoSync": "변경 시 자동 반영",
+        "inbox": "받은 편지함",
+        "from": "보낸 사람",
+        "brandName": "브랜드명",
+        "bodyExtra": "이번 달 꼭 알아야 할 마케팅 트렌드와 실전 팁을 담았어요.",
+        "cta": "자세히 보기 →"
+      }
+    },
+    "globalDb": {
+      "title": "글로벌 DB",
+      "description": "Excel, PDF 등 파일을 등록하면 각 노드에서 참조할 수 있습니다.",
+      "comingSoon": "준비 중입니다. 추후 파일 업로드 기능이 제공됩니다."
+    }
+  },
+  "onboarding": {
+    "title": "브랜드 키트를 설정해보세요",
+    "description": "한 번만 설정하면 모든 캠페인에서 더 나은 결과물이 나와요.",
+    "action": "설정하기"
+  },
+  "auth": {
+    "modalTitle": "로그인 / 회원가입",
+    "modalDescription": "캠페인을 시작하려면 로그인해 주세요.",
+    "tabs": {
+      "login": "로그인",
+      "signup": "회원가입"
+    },
+    "fields": {
+      "email": "이메일",
+      "password": "비밀번호",
+      "name": "이름 (선택)"
+    },
+    "placeholders": {
+      "email": "example@email.com",
+      "password": "비밀번호 입력",
+      "passwordMin": "{min}자 이상 입력",
+      "name": "이름을 입력하세요"
+    },
+    "actions": {
+      "login": "로그인",
+      "signup": "회원가입"
+    },
+    "errors": {
+      "fillRequired": "이메일과 비밀번호를 입력해 주세요.",
+      "passwordMin": "비밀번호는 {min}자 이상이어야 합니다.",
+      "invalidCredentials": "이메일 또는 비밀번호가 올바르지 않습니다.",
+      "signupFailed": "회원가입에 실패했습니다."
+    },
+    "orContinueWith": "또는",
+    "providers": {
+      "google": "Google로 계속하기"
+    }
+  }
+}
