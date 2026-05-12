@@ -30,6 +30,8 @@ import {
   CAMPAIGN_META,
   type CampaignType,
 } from '../email-campaign-purpose/constants'
+import type { EmailBlock } from '@/features/nodes/email-create/types'
+import { renderBlockContent } from '@/features/nodes/email-create/ui/EmailDropZone'
 import { cn } from '@/shared/libs/utils'
 
 type ConfirmSendConfigProps = { nodeId?: string }
@@ -93,7 +95,14 @@ export function ConfirmSendConfig({ nodeId }: ConfirmSendConfigProps) {
   const sendSettingsNode = nodes.find((n) => n.type === 'send-settings')
 
   const purposeData = purposeNode?.data as { campaignType?: CampaignType } | undefined
-  const emailData = emailNode?.data as { subject?: string; blocks?: unknown[] } | undefined
+  const emailData = emailNode?.data as
+    | {
+        subject?: string
+        blocks?: EmailBlock[]
+        brandColor?: string
+        fromName?: string
+      }
+    | undefined
   const addressData = addressNode?.data as { recipientEmail?: string } | undefined
   const settingsData = sendSettingsNode?.data as
     | {
@@ -110,6 +119,8 @@ export function ConfirmSendConfig({ nodeId }: ConfirmSendConfigProps) {
   const recipientEmail = addressData?.recipientEmail ?? ''
   const subject = settingsData?.subject ?? ''
   const previewText = settingsData?.previewText ?? ''
+  const emailBlocks = emailData?.blocks ?? []
+  const emailBrandColor = emailData?.brandColor || '#0f172a'
 
   useEffect(() => {
     const t = setTimeout(() => setChecking(false), 800)
@@ -335,7 +346,12 @@ export function ConfirmSendConfig({ nodeId }: ConfirmSendConfigProps) {
               )}
             >
               <div className="border-b border-gray-100 px-4 py-2.5">
-                <p className="truncate text-xs text-gray-400">From: Gmail 연동 계정</p>
+                <p className="truncate text-xs text-gray-400">
+                  From:{' '}
+                  {emailData?.fromName
+                    ? `${emailData.fromName} (Gmail)`
+                    : 'Gmail 연동 계정'}
+                </p>
                 <p className="mt-0.5 truncate text-sm font-medium text-gray-800">
                   {subject || '(제목 없음)'}
                 </p>
@@ -343,8 +359,22 @@ export function ConfirmSendConfig({ nodeId }: ConfirmSendConfigProps) {
                   <p className="mt-0.5 truncate text-xs text-gray-400">{previewText}</p>
                 )}
               </div>
-              <div className="flex items-center justify-center px-4 py-12 text-center text-sm text-gray-400">
-                이메일 콘텐츠 미리보기
+              <div className="max-h-[480px] overflow-y-auto px-8 py-6">
+                {emailBlocks.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
+                    <p className="text-sm text-gray-400">
+                      이메일 작성 노드에서 블록을 추가해주세요
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {emailBlocks.map((block) => (
+                      <div key={block.id}>
+                        {renderBlockContent(block, emailBrandColor)}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </section>

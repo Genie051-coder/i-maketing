@@ -21,7 +21,7 @@ import Image from 'next/image'
 import { GripVertical, Trash2, ImageIcon, Play, Code2, Share2, Link2, Layout } from 'lucide-react'
 import { EmailBlock, EmailFormData } from '../types'
 
-function renderBlockContent(block: EmailBlock, brandColor: string) {
+export function renderBlockContent(block: EmailBlock, brandColor: string) {
   switch (block.type) {
     case 'Logo':
       return block.url ? (
